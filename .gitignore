@@ -1,0 +1,45 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.supabase
+
+# Vercel local config
+.vercel
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+pnpm-error.log*
+
+# OS-specific garbage
+.DS_Store
+Thumbs.db
+
+# IDE folders
+.vscode/
+.idea/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Temporary files
+*.log
+*.cache
+*.tmp
+
+# NPM / Yarn / PNPM lock files (optional)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
