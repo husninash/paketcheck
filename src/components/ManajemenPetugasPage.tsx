@@ -23,7 +23,6 @@ export function ManajemenPetugasPage() {
     username: "",
     email: "",
     phone: "",
-    shift: "",
     password: "",
   });
 
@@ -36,7 +35,7 @@ export function ManajemenPetugasPage() {
 
   const handleDelete = (id: number, name: string) => {
     if (confirm(`Yakin ingin menghapus petugas ${name}?`)) {
-      deletePetugas(id);
+      deletePetugas(id.toString());
     }
   };
 
@@ -55,8 +54,9 @@ export function ManajemenPetugasPage() {
       username: newPetugas.username,
       email: newPetugas.email,
       phone: newPetugas.phone,
+      shift: "",  // default shift
+      role: "petugas",  // default role
       status: "Aktif",
-      shift: newPetugas.shift,
     });
 
     setNewPetugas({
@@ -64,7 +64,6 @@ export function ManajemenPetugasPage() {
       username: "",
       email: "",
       phone: "",
-      shift: "",
       password: "",
     });
     setIsAddDialogOpen(false);
@@ -153,18 +152,6 @@ export function ManajemenPetugasPage() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="add-shift">Shift</Label>
-                  <Input
-                    id="add-shift"
-                    placeholder="Contoh: Pagi (07:00-15:00)"
-                    value={newPetugas.shift}
-                    onChange={(e) =>
-                      setNewPetugas({ ...newPetugas, shift: e.target.value })
-                    }
-                    className="mt-2"
-                  />
-                </div>
-                <div>
                   <Label htmlFor="add-password">Password *</Label>
                   <Input
                     id="add-password"
@@ -207,7 +194,6 @@ export function ManajemenPetugasPage() {
                   <th className="px-6 py-4 text-left">Username</th>
                   <th className="px-6 py-4 text-left">Email</th>
                   <th className="px-6 py-4 text-left">Telepon</th>
-                  <th className="px-6 py-4 text-left">Shift</th>
                   <th className="px-6 py-4 text-left">Status</th>
                   <th className="px-6 py-4 text-left">Aksi</th>
                 </tr>
@@ -222,7 +208,6 @@ export function ManajemenPetugasPage() {
                     <td className="px-6 py-4">{p.username}</td>
                     <td className="px-6 py-4">{p.email}</td>
                     <td className="px-6 py-4">{p.phone}</td>
-                    <td className="px-6 py-4">{p.shift}</td>
                     <td className="px-6 py-4">
                       <Badge
                         variant={p.status === "Aktif" ? "default" : "destructive"}
@@ -251,7 +236,7 @@ export function ManajemenPetugasPage() {
                         <Button
                           size="sm"
                           variant="destructive"
-                          onClick={() => handleDelete(p.id, p.name)}
+                          onClick={() => handleDelete(Number(p.id), p.name)}
                           title="Hapus"
                         >
                           <Trash2 className="size-4" />
