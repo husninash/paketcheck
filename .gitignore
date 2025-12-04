@@ -6,14 +6,15 @@ dist/
 build/
 out/
 
-# Environment variables
+# Env variables
 .env
 .env.local
 .env.*.local
 .supabase
 
-# Vercel local config
+# Deployment configurations
 .vercel
+.netlify
 
 # Logs
 npm-debug.log*
@@ -22,24 +23,18 @@ yarn-error.log*
 pnpm-debug.log*
 pnpm-error.log*
 
-# OS-specific garbage
+# OS files
 .DS_Store
 Thumbs.db
 
-# IDE folders
+# IDE configs
 .vscode/
 .idea/
 
-# TypeScript cache
+# TypeScript
 *.tsbuildinfo
 
-# Temporary files
+# Cache and temporary
 *.log
 *.cache
 *.tmp
-
-# NPM / Yarn / PNPM lock files (optional)
-package-lock.json
-pnpm-lock.yaml
-yarn.lock
-
